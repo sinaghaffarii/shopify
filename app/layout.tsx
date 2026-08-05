@@ -1,19 +1,7 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Inter } from 'next/font/google';
 import './globals.css';
+import './Vazirmatn-font-face.css';
 import { cn } from '@/lib/utils';
-
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -22,18 +10,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
-    <html
-      lang="en"
-      className={cn(
-        'h-full',
-        'antialiased',
-        geistSans.variable,
-        geistMono.variable,
-        'font-sans',
-        inter.variable
-      )}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={cn('h-full', 'antialiased', 'font-sans')}>
+      <body className="min-h-full flex flex-col bg-[#f8fafc]">
+        <header className="w-11/12 mx-auto bg-white h-20 rounded-lg shadow p-2 my-3">
+          header
+        </header>
+        {children}
+        <footer>footer</footer>
+      </body>
     </html>
   );
 }
