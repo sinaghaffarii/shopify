@@ -1,3 +1,9 @@
+import Hero from '@/components/layout/Header/Hero';
+
 export default function Home() {
-  return <main>کتابفروشی اسکای بوک</main>;
+  return (
+    <main className="container mx-auto w-[95%] max-w-325">
+      <Hero />
+    </main>
+  );
 }
