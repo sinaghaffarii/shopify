@@ -17,14 +17,14 @@ const MobileNavigation = () => {
       <header className="bg-white px-4 py-3 flex items-center justify-between border-b border-gray-100">
         {/* بخش راست: لوگو و عنوان */}
         <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-sm shadow-sm">
+          <div className="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-sm shadow-sm">
             پ
           </div>
           <div>
             <h1 className="text-base font-bold text-gray-800 leading-tight">
               پایگاه
             </h1>
-            <p className="text-[10px] text-gray-500 leading-tight -mt-0.5">
+            <p className="text-sm text-gray-500 leading-tight -mt-0.5">
               زیتا کنکور شو
             </p>
           </div>
@@ -59,7 +59,7 @@ const MobileNavigation = () => {
         </div>
         <button className="text-xs font-medium text-blue-600 hover:text-blue-700 transition-colors flex items-center gap-1">
           کنکوریوم مهروماه
-          <span className="text-[10px]">›</span>
+          <span className="text-sm">›</span>
         </button>
       </div>
 
@@ -70,7 +70,7 @@ const MobileNavigation = () => {
           className="flex flex-col items-center gap-0.5 text-xs text-blue-600"
         >
           <Home className="w-5 h-5" strokeWidth={2} />
-          <span className="text-[10px] font-medium">خانه</span>
+          <span className="text-sm font-medium">خانه</span>
         </a>
 
         <a
@@ -78,7 +78,7 @@ const MobileNavigation = () => {
           className="flex flex-col items-center gap-0.5 text-xs text-gray-500 hover:text-blue-600 transition-colors"
         >
           <LayoutDashboard className="w-5 h-5" strokeWidth={1.8} />
-          <span className="text-[10px] font-medium">داشبورد</span>
+          <span className="text-sm font-medium">داشبورد</span>
         </a>
 
         <a
@@ -86,11 +86,11 @@ const MobileNavigation = () => {
           className="flex flex-col items-center gap-0.5 text-xs text-gray-500 hover:text-blue-600 transition-colors"
         >
           <div className="relative">
-            <div className="w-12 h-12 -mt-6 bg-blue-600 roundedll flex items-center justify-center shadow-lg shadow-blue-200">
+            <div className="w-12 h-12 -mt-6 bg-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-blue-200">
               <BookOpen className="w-6 h-6 text-white" strokeWidth={2} />
             </div>
           </div>
-          <span className="text-[10px] font-medium mt-0.5">کتاب‌ها</span>
+          <span className="text-sm font-medium mt-0.5">کتاب‌ها</span>
         </a>
 
         <a
@@ -98,7 +98,7 @@ const MobileNavigation = () => {
           className="flex flex-col items-center gap-0.5 text-xs text-gray-500 hover:text-blue-600 transition-colors"
         >
           <User className="w-5 h-5" strokeWidth={1.8} />
-          <span className="text-[10px] font-medium">سید حیدر</span>
+          <span className="text-sm font-medium">سید حیدر</span>
         </a>
 
         <a
@@ -106,7 +106,7 @@ const MobileNavigation = () => {
           className="flex flex-col items-center gap-0.5 text-xs text-gray-500 hover:text-blue-600 transition-colors"
         >
           <GraduationCap className="w-5 h-5" strokeWidth={1.8} />
-          <span className="text-[10px] font-medium">دانشگاه</span>
+          <span className="text-sm font-medium">دانشگاه</span>
         </a>
       </nav>
     </div>
