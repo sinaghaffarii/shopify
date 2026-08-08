@@ -138,3 +138,37 @@ body {
   direction: rtl;
   font-family: Vazirmatn;
 }
+
+/* ==================== BANNER CAROUSEL SWIPPER DOTS STYLES ============================== */
+.hero-main-swiper .swiper-pagination {
+  bottom: 12px !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+}
+
+.hero-main-swiper .swiper-pagination-bullet {
+  width: 7px;
+  height: 7px;
+
+  margin: 0 !important;
+
+  border-radius: 9999px;
+
+  background: #ffffff;
+  opacity: 0.6;
+
+  transition:
+    width 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.hero-main-swiper .swiper-pagination-bullet-active {
+  width: 24px;
+
+  background: #ffffff;
+  opacity: 1;
+}
