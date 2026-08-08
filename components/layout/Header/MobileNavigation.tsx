@@ -17,7 +17,7 @@ const MobileNavigation = () => {
       <header className="bg-white px-4 py-3 flex items-center justify-between border-b border-gray-100">
         {/* بخش راست: لوگو و عنوان */}
         <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-sm">
+          <div className="w-9 h-9 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-sm shadow-sm">
             پ
           </div>
           <div>
@@ -33,7 +33,7 @@ const MobileNavigation = () => {
         {/* بخش چپ: آیکون‌ها */}
         <div className="flex items-center gap-2">
           <Button
-            className="transition-colors relative rounded-lg w-8"
+            className="transition-colors relative rounded w-8"
             variant={'outline'}
           >
             <Search className="w-5 h-5 text-gray-600" strokeWidth={1.8} />
@@ -64,7 +64,7 @@ const MobileNavigation = () => {
       </div>
 
       {/* ناوبری پایین (Bottom Navigation) */}
-      <nav className="bg-white border rounded-lg shadow-lg border-gray-100 fixed bottom-2 left-2 right-2 z-50 px-2 py-1.5 flex items-center justify-around">
+      <nav className="bg-white border rounded shadow-lg border-gray-100 fixed bottom-2 left-2 right-2 z-50 px-2 py-1.5 flex items-center justify-around">
         <a
           href="#"
           className="flex flex-col items-center gap-0.5 text-xs text-blue-600"
@@ -86,7 +86,7 @@ const MobileNavigation = () => {
           className="flex flex-col items-center gap-0.5 text-xs text-gray-500 hover:text-blue-600 transition-colors"
         >
           <div className="relative">
-            <div className="w-12 h-12 -mt-6 bg-blue-600 rounded-full flex items-center justify-center shadow-lg shadow-blue-200">
+            <div className="w-12 h-12 -mt-6 bg-blue-600 roundedll flex items-center justify-center shadow-lg shadow-blue-200">
               <BookOpen className="w-6 h-6 text-white" strokeWidth={2} />
             </div>
           </div>
