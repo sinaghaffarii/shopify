@@ -10,10 +10,10 @@ const DesktopNavigation = () => {
         {/* بخش راست: لوگو و عنوان */}
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-lg shadow-sm">
-            ک
+            ل
           </div>
           <span className="text-gray-800 font-medium text-sm whitespace-nowrap">
-            کتابام
+            لباسینو
           </span>
         </div>
 
@@ -64,7 +64,7 @@ const DesktopNavigation = () => {
           className="hover:text-blue-600 transition-colors whitespace-nowrap flex items-center gap-1"
         >
           <BookOpen className="w-3.5 h-3.5 text-gray-400" />
-          خرید کتاب دست دوم
+          شگفت انگیز های امروز
         </a>
         <a
           href="#"

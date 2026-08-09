@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "title": "گاج",
+    "slug": "gaj",
+    "image": "/images/categories/gaj.png"
+  },
+  {
+    "id": 2,
+    "title": "خیلی سبز",
+    "slug": "kheili-sabz",
+    "image": "/images/categories/kheiliSabz.png"
+  },
+  {
+    "id": 3,
+    "title": "قلم چی",
+    "slug": "ghalamchi",
+    "image": "/images/categories/galamChi.png"
+  },
+  {
+    "id": 4,
+    "title": "پرتقال",
+    "slug": "porteghal",
+    "image": "/images/categories/portagal.png"
+  },
+  {
+    "id": 5,
+    "title": "کاگو",
+    "slug": "kago",
+    "image": "/images/categories/kago.png"
+  },
+  {
+    "id": 6,
+    "title": "مهر و ماه",
+    "slug": "mehr-o-mah",
+    "image": "/images/categories/mehroMah.png"
+  },
+  {
+    "id": 7,
+    "title": "مبتکران",
+    "slug": "mobtakeran",
+    "image": "/images/categories/mobtakeran.png"
+  },
+  {
+    "id": 8,
+    "title": "گلواژه",
+    "slug": "golvazhe",
+    "image": "/images/categories/golvazhe.png"
+  },
+  {
+    "id": 9,
+    "title": "هوپا",
+    "slug": "hooppa",
+    "image": "/images/categories/hopa.png"
+  },
+  {
+    "id": 10,
+    "title": "نشر الگو",
+    "slug": "nashr-olgoo",
+    "image": "/images/categories/olgo.png"
+  },
+  {
+    "id": 11,
+    "title": "منتشران",
+    "slug": "montasheran",
+    "image": "/images/categories/montasheran.png"
+  },
+  {
+    "id": 12,
+    "title": "مشاوران آموزش",
+    "slug": "moshaveran-amoozesh",
+    "image": "/images/categories/moshaveranAmozesh.png"
+  },
+  {
+    "id": 13,
+    "title": "خواندنی",
+    "slug": "khandani",
+    "image": "/images/categories/khandani.png"
+  },
+  {
+    "id": 14,
+    "title": "نشر دریافت",
+    "slug": "nashr-daryaft",
+    "image": "/images/categories/nashrDaryaft.png"
+  }
+]
