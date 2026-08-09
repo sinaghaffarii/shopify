@@ -5,54 +5,29 @@ import { describe, expect, it, vi } from 'vitest';
 
 import HeroCarousel from './HeroCarousel';
 
-vi.mock('swiper/modules', () => ({
-  Autoplay: {},
-  Pagination: {},
-}));
-
-vi.mock('swiper/css', () => ({}));
-vi.mock('swiper/css/pagination', () => ({}));
-
-vi.mock('swiper/react', () => {
-  const Swiper = ({
+vi.mock('@/components/common/slider/Slider', () => ({
+  default: ({
     children,
     className,
   }: {
     children: React.ReactNode;
     className?: string;
   }) => (
-    <div data-testid="swiper" className={className}>
+    <div data-testid="slider" className={className}>
       {children}
     </div>
-  );
+  ),
+}));
 
-  const SwiperSlide = ({ children }: { children: React.ReactNode }) => (
+vi.mock('swiper/react', () => ({
+  SwiperSlide: ({ children }: { children: React.ReactNode }) => (
     <div data-testid="swiper-slide">{children}</div>
-  );
-
-  return {
-    Swiper,
-    SwiperSlide,
-  };
-});
+  ),
+}));
 
 vi.mock('next/image', () => ({
   default: ({ alt, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => (
     <img {...props} alt={alt} />
-  ),
-}));
-
-vi.mock('./CarouselControls', () => ({
-  default: ({ onPrev, onNext }: { onPrev: () => void; onNext: () => void }) => (
-    <div>
-      <button type="button" onClick={onPrev}>
-        قبلی
-      </button>
-
-      <button type="button" onClick={onNext}>
-        بعدی
-      </button>
-    </div>
   ),
 }));
 
@@ -75,11 +50,9 @@ describe('HeroCarousel', () => {
     expect(screen.getByAltText('بنر محصولات پیگمنت')).toBeInTheDocument();
   });
 
-  it('renders previous and next controls', () => {
+  it('renders the slider', () => {
     render(<HeroCarousel />);
 
-    expect(screen.getByRole('button', { name: 'قبلی' })).toBeInTheDocument();
-
-    expect(screen.getByRole('button', { name: 'بعدی' })).toBeInTheDocument();
+    expect(screen.getByTestId('slider')).toBeInTheDocument();
   });
 });
