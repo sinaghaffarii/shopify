@@ -1,13 +1,18 @@
-'use client';
-
-import { useMediaQuery } from '@/hooks/useMediaQuery';
 import DesktopNavigation from './DesktopNavigation';
 import MobileNavigation from './MobileNavigation';
 
 const Navigation = () => {
-  const isDesktop = useMediaQuery('(min-width: 768px)');
+  return (
+    <>
+      <div className="hidden md:block">
+        <DesktopNavigation />
+      </div>
 
-  return <>{isDesktop ? <DesktopNavigation /> : <MobileNavigation />}</>;
+      <div className="block md:hidden">
+        <MobileNavigation />
+      </div>
+    </>
+  );
 };
 
 export default Navigation;
