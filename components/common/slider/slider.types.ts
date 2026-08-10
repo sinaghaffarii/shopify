@@ -7,16 +7,38 @@ export interface SliderBreakpoints {
   wide?: number;
 }
 
+type NavigationPosition = 'inside' | 'outside' | 'none';
+
 export interface SliderProps {
   children: ReactNode;
-  slidesPerView?: number;
+
+  slidesPerView?: number | 'auto';
+
   breakpoints?: SliderBreakpoints;
+
   spaceBetween?: number;
+
   loop?: boolean;
+
   autoplay?: boolean;
+
   autoplayDelay?: number;
+
   pagination?: boolean;
+
   navigation?: boolean;
+
+  navigationPosition?: NavigationPosition;
+
+  hideNavigationOnMobile?: boolean;
+
   speed?: number;
+
+  height?: string;
+
+  minHeight?: string;
+
   className?: string;
+
+  slideClassName?: string;
 }

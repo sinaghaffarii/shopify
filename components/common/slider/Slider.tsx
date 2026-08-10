@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useMemo, useRef } from 'react';
+import { useMemo, useRef } from 'react';
 
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
@@ -10,49 +10,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 import SliderControls from './SliderControls';
-
-interface SliderBreakpoints {
-  mobile?: number;
-  tablet?: number;
-  desktop?: number;
-  wide?: number;
-}
-
-type NavigationPosition = 'inside' | 'outside' | 'none';
-
-interface SliderProps {
-  children: ReactNode;
-
-  slidesPerView?: number | 'auto';
-
-  breakpoints?: SliderBreakpoints;
-
-  spaceBetween?: number;
-
-  loop?: boolean;
-
-  autoplay?: boolean;
-
-  autoplayDelay?: number;
-
-  pagination?: boolean;
-
-  navigation?: boolean;
-
-  navigationPosition?: NavigationPosition;
-
-  hideNavigationOnMobile?: boolean;
-
-  speed?: number;
-
-  height?: string;
-
-  minHeight?: string;
-
-  className?: string;
-
-  slideClassName?: string;
-}
+import { SliderProps } from '@/components/common/slider/slider.types';
 
 export default function Slider({
   children,

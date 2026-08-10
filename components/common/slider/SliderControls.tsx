@@ -20,33 +20,25 @@ export default function SliderControls({
   direction,
 }: SliderControlsProps) {
   const buttonClass = `
-    size-7
-    shrink-0
+    size-8
+  shrink-0
+  rounded-full
+  border
+  border-gray-200/80
+  bg-white/80
+  text-gray-700
+  shadow-[0_3px_10px_rgba(0,0,0,0.06)]
+  backdrop-blur-sm
 
-    rounded-md
+  transition-all
+  duration-200
 
-    border
-    border-white/40
+  hover:bg-white
+  hover:shadow-[0_4px_14px_rgba(0,0,0,0.08)]
 
-    bg-white/30
+  active:scale-95
 
-    text-gray-800
-
-    shadow-lg
-
-    backdrop-blur-md
-    backdrop-saturate-150
-
-    transition-all
-    duration-200
-
-    hover:bg-white/50
-    hover:shadow-xl
-
-    active:scale-95
-
-    md:size-8
-    lg:size-9
+  md:size-9
   `;
 
   // Outside
