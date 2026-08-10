@@ -13,8 +13,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
-    <html lang="fa" dir="rtl" className="h-full antialiased font-sans">
-      <body className="flex min-h-full flex-col">
+    <html
+      lang="fa"
+      dir="rtl"
+      className="h-full antialiased font-sans"
+      suppressHydrationWarning
+    >
+      <body className="flex min-h-full flex-col" suppressHydrationWarning>
         <Navigation />
 
         {children}

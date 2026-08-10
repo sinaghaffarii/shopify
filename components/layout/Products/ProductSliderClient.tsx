@@ -1,12 +1,13 @@
 'use client';
 
-import { SwiperSlide } from 'swiper/react';
-
-import Slider from '@/components/common/slider/Slider';
-
 import ProductCard from './ProductCard';
 
 import type { Product } from './product.types';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel';
 
 interface ProductSliderClientProps {
   products: Product[];
@@ -16,26 +17,23 @@ export default function ProductSliderClient({
   products,
 }: ProductSliderClientProps) {
   return (
-    <Slider
-      slidesPerView={2}
-      breakpoints={{
-        mobile: 2,
-        tablet: 3,
-        desktop: 5,
-        wide: 6,
-      }}
-      spaceBetween={10}
-      navigation
-      navigationPosition="inside"
-      hideNavigationOnMobile
+    <Carousel
+      autoplay
       loop
-      speed={650}
+      navigation
+      hideNavigationOnMobile
+      pagination
+      autoplayDelay={4000}
+      spaceBetween={12}
+      breakpoints={{ mobile: 2, tablet: 4, desktop: 6 }}
     >
-      {products.map((product) => (
-        <SwiperSlide key={product.id}>
-          <ProductCard product={product} />
-        </SwiperSlide>
-      ))}
-    </Slider>
+      <CarouselContent>
+        {products.map((product) => (
+          <CarouselItem key={product.id}>
+            <ProductCard product={product} />
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+    </Carousel>
   );
 }
