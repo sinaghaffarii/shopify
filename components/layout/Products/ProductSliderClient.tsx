@@ -1,12 +1,17 @@
 'use client';
 
+import Autoplay from 'embla-carousel-autoplay';
+
 import ProductCard from './ProductCard';
 
 import type { Product } from './product.types';
+
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from '@/components/ui/carousel';
 
 interface ProductSliderClientProps {
@@ -18,18 +23,33 @@ export default function ProductSliderClient({
 }: ProductSliderClientProps) {
   return (
     <Carousel
-      autoplay
-      loop
-      navigation
-      hideNavigationOnMobile
-      pagination
-      autoplayDelay={4000}
-      spaceBetween={12}
-      breakpoints={{ mobile: 2, tablet: 4, desktop: 6 }}
+      opts={{
+        direction: 'rtl',
+        align: 'start',
+        loop: true,
+      }}
+      plugins={[
+        Autoplay({
+          delay: 3000,
+          stopOnInteraction: false,
+          stopOnMouseEnter: true,
+        }),
+      ]}
+      className="w-full"
     >
-      <CarouselContent>
+      <CarouselContent className="-ml-3">
         {products.map((product) => (
-          <CarouselItem key={product.id}>
+          <CarouselItem
+            key={product.id}
+            className="
+              pl-3
+              basis-1/2
+              sm:basis-1/3
+              md:basis-1/4
+              lg:basis-1/5
+              xl:basis-1/6
+            "
+          >
             <ProductCard product={product} />
           </CarouselItem>
         ))}

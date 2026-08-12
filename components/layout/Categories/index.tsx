@@ -3,11 +3,13 @@
 import Image from 'next/image';
 
 import categories from '@/data/categories.json';
+
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 
 type CategoryType = {
   id: number;
@@ -19,29 +21,41 @@ type CategoryType = {
 const Categories = () => {
   return (
     <Carousel
-      autoplay
-      loop
-      navigation
-      hideNavigationOnMobile
-      pagination
-      autoplayDelay={4000}
-      spaceBetween={12}
-      breakpoints={{ mobile: 2, tablet: 3, desktop: 6 }}
+      opts={{
+        direction: 'rtl',
+        align: 'start',
+        loop: true,
+        dragFree: false,
+      }}
+      plugins={[
+        Autoplay({
+          delay: 4000,
+          stopOnInteraction: false,
+          stopOnMouseEnter: true,
+        }),
+      ]}
+      className="w-full"
     >
-      <CarouselContent>
+      <CarouselContent className="-ml-3">
         {categories.map((cat: CategoryType) => (
           <CarouselItem
             key={cat.id}
-            className="flex h-auto items-center justify-center"
+            className="
+              pl-3
+              basis-1/3
+              sm:basis-1/4
+              md:basis-1/5
+              lg:basis-1/6
+            "
           >
-            <div className="flex flex-col items-center justify-center gap-3 my-10">
+            <div className="my-10 flex flex-col items-center justify-center gap-3">
               <div className="flex size-20 items-center justify-center rounded-full border">
                 <Image
                   src={cat.image}
                   alt={cat.title}
                   width={70}
                   height={70}
-                  className="rounded-full"
+                  className="rounded-full object-cover"
                 />
               </div>
 

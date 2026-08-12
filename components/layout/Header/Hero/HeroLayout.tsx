@@ -3,8 +3,8 @@ import HeroCarousel from './HeroCarousel';
 import { carouselSlides } from './carousel.data';
 
 export default function HeroLayout() {
-  const topBanner = carouselSlides[1];
-  const bottomBanner = carouselSlides[2];
+  const topBanner = carouselSlides[2];
+  const bottomBanner = carouselSlides[3];
 
   return (
     <div

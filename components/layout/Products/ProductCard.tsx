@@ -21,7 +21,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     <article className="group relative w-full min-w-0 overflow-hidden rounded-xl border border-gray-100 bg-white transition-[box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.06)]">
       {/* Discount */}
       {product.discount && (
-        <span className="absolute right-2 top-2 z-20 rounded-md border border-white/60 bg-yellow-500/90 px-2 py-1 text-[10px] font-medium text-white shadow-sm backdrop-blur-sm sm:text-xs">
+        <span className="absolute right-2 top-2 z-20 rounded-md border border-white/60 bg-emerald-500/90 px-2 py-1 text-[10px] font-medium text-white shadow-sm backdrop-blur-sm sm:text-xs">
           {product.discount}٪
         </span>
       )}
@@ -32,14 +32,14 @@ export default function ProductCard({ product }: ProductCardProps) {
         variant="ghost"
         size="icon"
         aria-label="افزودن به علاقه‌مندی‌ها"
-        className="absolute left-2 top-2 z-20 size-8 rounded-full border border-white/70 bg-white/70 text-gray-400 shadow-sm backdrop-blur-md hover:bg-white hover:text-red-500"
+        className="absolute left-2 top-2 z-20 size-8 rounded-full border border-white/70 bg-white/70 text-gray-400 shadow-sm backdrop-blur-md hover:bg-white hover:text-emerald-500"
       >
         <Heart className="size-4" />
       </Button>
 
       <Link href={product.href ?? '#'} className="flex h-full flex-col">
         {/* Image */}
-        <div className="relative aspect-square w-full overflow-hidden bg-gray-50/70">
+        <div className="relative aspect-square w-full overflow-hidden ">
           <Image
             src={product.image}
             alt={product.alt}
@@ -88,14 +88,16 @@ export default function ProductCard({ product }: ProductCardProps) {
 
       {/* Add to cart */}
       <div className="absolute bottom-0 left-0 z-20">
-        <div className="relative flex size-[58px] items-end justify-start">
-          <div className="absolute inset-0 rounded-tr-[30px] bg-gray-50/70" />
+        <div className="relative flex size-[48px] items-end justify-start">
+          <div className="absolute inset-0 rounded-tr-[20px] bg-gray-50" />
 
           <Button
             type="button"
             size="icon"
+            variant={'secondary'}
             aria-label="افزودن به سبد خرید"
-            className="relative z-10 mb-1 ml-1 size-10 rounded-full bg-gray-900 text-white shadow-[0_4px_12px_rgba(0,0,0,0.10)] transition-all hover:bg-blue-600 active:scale-95"
+            // className="relative z-10 mb-2 mr-2 size-10 rounded-full bg-gray-900 text-white shadow-[0_4px_12px_rgba(0,0,0,0.10)] transition-all hover:bg-blue-600 active:scale-95"
+            className="absolute left-2 top-2 z-20 size-8 rounded-full border border-white/70 bg-white/70 text-gray-400 shadow-sm backdrop-blur-md hover:bg-white hover:text-emerald-500"
           >
             <ShoppingCart className="size-4" />
           </Button>

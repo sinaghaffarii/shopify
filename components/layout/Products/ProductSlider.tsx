@@ -17,7 +17,7 @@ export default function ProductSlider({
   saleEndsAt,
 }: ProductSliderProps) {
   return (
-    <section className="my-6 overflow-hidden rounded-2xl border border-gray-100 bg-gray-50/70 p-3 sm:p-4">
+    <section className="my-6 overflow-hidden rounded-2xl border border-gray-100 p-3 sm:p-4">
       {/* Header */}
       <header className="mb-4 flex items-center justify-between gap-3">
         <div className="flex min-w-0 items-center gap-2.5">
