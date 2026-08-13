@@ -1,12 +1,16 @@
 'use client';
 
-import { SwiperSlide } from 'swiper/react';
-
-import Slider from '@/components/common/slider/Slider';
+import Autoplay from 'embla-carousel-autoplay';
 
 import ProductCard from './ProductCard';
 
 import type { Product } from './product.types';
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel';
 
 interface ProductSliderClientProps {
   products: Product[];
@@ -16,26 +20,37 @@ export default function ProductSliderClient({
   products,
 }: ProductSliderClientProps) {
   return (
-    <Slider
-      slidesPerView={2}
-      breakpoints={{
-        mobile: 2,
-        tablet: 3,
-        desktop: 5,
-        wide: 6,
+    <Carousel
+      opts={{
+        direction: 'rtl',
+        align: 'start',
+        loop: true,
       }}
-      spaceBetween={10}
-      navigation
-      navigationPosition="inside"
-      hideNavigationOnMobile
-      loop
-      speed={650}
+      plugins={[
+        Autoplay({
+          delay: 3000,
+          stopOnInteraction: false,
+          stopOnMouseEnter: true,
+        }),
+      ]}
+      className="w-full"
     >
-      {products.map((product) => (
-        <SwiperSlide key={product.id}>
-          <ProductCard product={product} />
-        </SwiperSlide>
-      ))}
-    </Slider>
+      <CarouselContent className="-ml-2">
+        {products.map((product) => (
+          <CarouselItem
+            key={product.id}
+            className="
+              pl-2
+              basis-1/2
+              sm:basis-1/3
+              md:basis-1/4
+              lg:basis-1/5
+            "
+          >
+            <ProductCard product={product} />
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+    </Carousel>
   );
 }

@@ -4,7 +4,7 @@ import ProductCardSkeleton from './ProductCardSkeleton';
 
 export default function ProductSliderSkeleton() {
   return (
-    <section className="my-6 overflow-hidden rounded-2xl border bg-white p-3 sm:p-4">
+    <section className="my-6">
       {/* Header */}
       <div className="mb-4 flex items-center justify-between">
         <div className="flex items-center gap-3">

@@ -1,4 +1,17 @@
-import type { ElementType } from 'react';
+import type { ReactNode } from 'react';
+
+export interface ProductSize {
+  id: string;
+  label: string;
+  available: boolean;
+}
+
+export interface ProductColor {
+  id: string;
+  name: string;
+  hex?: string;
+  available: boolean;
+}
 
 export interface Product {
   id: number;
@@ -14,6 +27,9 @@ export interface Product {
   discount?: number;
 
   href?: string;
+
+  sizes?: ProductSize[];
+  colors?: ProductColor[];
 }
 
 export interface ProductSliderProps {
@@ -21,7 +37,7 @@ export interface ProductSliderProps {
 
   products: Product[];
 
-  icon?: ElementType;
+  icon?: ReactNode;
 
   href?: string;
 

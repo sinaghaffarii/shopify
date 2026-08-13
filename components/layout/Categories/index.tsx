@@ -1,59 +1,65 @@
 'use client';
 
-import Image from 'next/image';
+import { categories } from '@/components/layout/Categories/categories.data';
+import SectionHeader from '@/components/SectionHeader';
 
-import { SwiperSlide } from 'swiper/react';
-
-import Slider from '@/components/common/slider/Slider';
-
-import categories from '@/data/categories.json';
-
-// import ImageNotFound from '@/public/images/Image-not-found.png';
-
-type CategoryType = {
-  id: number;
-  title: string;
-  slug: string;
-  image: string;
-};
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel';
+import DoutOne from '@/components/ui/icons/DoutOne';
+import Autoplay from 'embla-carousel-autoplay';
 
 const Categories = () => {
   return (
-    <Slider
-      slidesPerView={3}
-      breakpoints={{
-        mobile: 3,
-        tablet: 7,
-        desktop: 10,
-      }}
-      spaceBetween={8}
-      navigation
-      navigationPosition="outside"
-      hideNavigationOnMobile
-      loop
-      height="auto"
-    >
-      {categories.map((cat: CategoryType) => (
-        <SwiperSlide
-          key={cat.id}
-          className="flex h-auto items-center justify-center"
-        >
-          <div className="flex flex-col items-center justify-center gap-3 my-10">
-            <div className="flex size-20 items-center justify-center rounded-full border">
-              <Image
-                src={cat.image}
-                alt={cat.title}
-                width={70}
-                height={70}
-                className="rounded-full"
-              />
-            </div>
+    <div>
+      <SectionHeader icon={<DoutOne className="size-6" />} title="دسته ها" />
+      <Carousel
+        opts={{
+          direction: 'rtl',
+          align: 'start',
+          loop: true,
+          dragFree: false,
+        }}
+        plugins={[
+          Autoplay({
+            delay: 4000,
+            stopOnInteraction: false,
+            stopOnMouseEnter: true,
+          }),
+        ]}
+        className="w-full"
+      >
+        <CarouselContent className="-ml-3">
+          {categories.map((cat) => {
+            const Icon = cat.icon;
 
-            <p className="text-sm font-medium text-gray-800">{cat.title}</p>
-          </div>
-        </SwiperSlide>
-      ))}
-    </Slider>
+            return (
+              <CarouselItem
+                key={cat.id}
+                className="
+                pl-3
+                basis-1/3
+                sm:basis-1/4
+                md:basis-1/5
+                lg:basis-1/6
+              "
+              >
+                <div className="gap-3">
+                  <div className="h-20 w-full flex items-center justify-around flex-wrap rounded-xl border border-gray-200 bg-white">
+                    <p className="text-sm font-medium text-gray-800">
+                      {cat.name}
+                    </p>
+                    <Icon className="size-8 text-gray-700" strokeWidth={1.5} />
+                  </div>
+                </div>
+              </CarouselItem>
+            );
+          })}
+        </CarouselContent>
+      </Carousel>
+    </div>
   );
 };
 

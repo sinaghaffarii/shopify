@@ -9,8 +9,10 @@ import ServiceFeatures from '@/components/layout/ServiceFeatures/ServiceFeatures
 import Brands from '@/components/layout/Brands/Brands';
 
 import BlogSection from '@/components/layout/Blog/BlogSection';
-import Newsletter from '@/components/layout/Newsletter/NewsLetter';
 import { products } from '@/components/layout/Products/product.data';
+import TShirt from '@/components/ui/icons/TShirt';
+import PantsDuotone from '@/components/ui/icons/PantsDoutOne';
+import PerfumeDuotone from '@/components/ui/icons/PerfumeDoutOne';
 
 export default function Home() {
   return (
@@ -21,32 +23,33 @@ export default function Home() {
         <Categories />
 
         <ProductSlider
-          title="شگفت‌انگیزهای امروز"
+          title="جذاب های تابستونی"
+          icon={<TShirt className="size-6" />}
           products={products}
           href="/products/special-offers"
         />
 
         <ProductSlider
           title="شلوار جین مردانه"
+          icon={<PantsDuotone className="size-6" />}
           products={products}
           href="/category/jeans"
         />
 
         <ProductSlider
-          title="تیشرت مردانه"
+          title="بوی خوش زندگی"
+          icon={<PerfumeDuotone className="size-6" />}
           products={products}
           href="/category/t-shirts"
         />
 
         <PromoBanners />
 
-        <ServiceFeatures />
-
         <Brands />
 
         <BlogSection />
 
-        <Newsletter />
+        <ServiceFeatures />
       </main>
     </>
   );
