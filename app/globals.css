@@ -122,6 +122,7 @@
   body {
     @apply bg-background text-foreground;
   }
+
   button:not(:disabled),
   [role='button']:not(:disabled) {
     cursor: pointer;
@@ -135,8 +136,8 @@
 body {
   direction: rtl;
   font-family:
-    Vazirmatn UI FD NL,
-    KalamehWeb;
+    KalamehWeb,
+    Vazirmatn UI FD NL;
 }
 
 /* ==================== BANNER CAROUSEL SWIPPER DOTS STYLES ============================== */

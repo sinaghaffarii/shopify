@@ -1,28 +1,36 @@
-import { Headphones, RotateCcw, ShieldCheck, Truck } from 'lucide-react';
+import {
+  Headphones,
+  LucideIcon,
+  RotateCcw,
+  ShieldCheck,
+  Truck,
+} from 'lucide-react';
 
-export const serviceFeatures = [
+interface FeatureItem {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}
+
+export const features: FeatureItem[] = [
   {
-    id: 1,
-    title: 'پرداخت امن',
-    description: 'پرداخت امن و مطمئن',
+    title: 'امنیت کامل',
+    description: 'دارای درگاه ایمن و مطمئن',
     icon: ShieldCheck,
   },
   {
-    id: 2,
-    title: 'پشتیبانی ۲۴/۷',
-    description: 'همیشه در کنار شما هستیم',
-    icon: Headphones,
-  },
-  {
-    id: 3,
-    title: '۷ روز ضمانت بازگشت',
-    description: 'خرید با خیال راحت',
+    title: 'بهترین قیمت',
+    description: 'مطمئن باش کف قیمت بازار',
     icon: RotateCcw,
   },
   {
-    id: 4,
+    title: 'پشتیبانی خوب',
+    description: 'همیشه آنلاینیم',
+    icon: Headphones,
+  },
+  {
     title: 'ارسال سریع',
-    description: 'ارسال سریع به سراسر کشور',
+    description: 'ارسال فوری تهران و شهر ها',
     icon: Truck,
   },
-] as const;
+];

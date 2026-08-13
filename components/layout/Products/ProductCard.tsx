@@ -2,11 +2,9 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Heart, ShoppingCart } from 'lucide-react';
-
-import { Button } from '@/components/ui/button';
 
 import type { Product } from './product.types';
+import CartLargeDuotone from '@/components/ui/icons/CartLargeDuotone';
 
 interface ProductCardProps {
   product: Product;
@@ -17,92 +15,133 @@ const formatPrice = (price: number) => {
 };
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const originalPrice = product.price;
+  const discount = product.discount ?? 0;
+
+  const discountedPrice =
+    discount > 0
+      ? Math.round(originalPrice - (originalPrice * discount) / 100)
+      : originalPrice;
+
   return (
-    <article className="group relative w-full min-w-0 overflow-hidden rounded-xl border border-gray-100 bg-white transition-[box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.06)]">
-      {/* Discount */}
-      {product.discount && (
-        <span className="absolute right-2 top-2 z-20 rounded-md border border-white/60 bg-emerald-500/90 px-2 py-1 text-[10px] font-medium text-white shadow-sm backdrop-blur-sm sm:text-xs">
-          {product.discount}٪
-        </span>
-      )}
-
-      {/* Favorite */}
-      <Button
-        type="button"
-        variant="ghost"
-        size="icon"
-        aria-label="افزودن به علاقه‌مندی‌ها"
-        className="absolute left-2 top-2 z-20 size-8 rounded-full border border-white/70 bg-white/70 text-gray-400 shadow-sm backdrop-blur-md hover:bg-white hover:text-emerald-500"
-      >
-        <Heart className="size-4" />
-      </Button>
-
-      <Link href={product.href ?? '#'} className="flex h-full flex-col">
+    <article
+      className="
+        group
+        relative
+        h-full
+        w-full
+        overflow-hidden
+        rounded-[18px]
+        border
+        border-transparent
+        bg-white
+        px-2
+        pt-2
+        transition-all
+        duration-200
+        hover:border-gray-100
+        md:p-4
+      "
+    >
+      {/* Product Link */}
+      <Link href={product.href ?? '#'} className="block h-full cursor-pointer">
         {/* Image */}
-        <div className="relative aspect-square w-full overflow-hidden ">
+        <div className="relative aspect-square overflow-hidden rounded-[18px] bg-white">
           <Image
             src={product.image}
-            alt={product.alt}
+            alt={product.alt || product.title}
             fill
             sizes="
-              (max-width: 640px) 45vw,
-              (max-width: 768px) 30vw,
-              (max-width: 1024px) 22vw,
-              180px
+              (max-width: 640px) 150px,
+              (max-width: 768px) 200px,
+              (max-width: 1024px) 230px,
+              250px
             "
-            className="object-contain p-3 transition-transform duration-300 group-hover:scale-[1.04]"
+            className="
+              object-cover
+              object-center
+              mix-blend-multiply
+              transition-transform
+              duration-300
+              group-hover:scale-[1.03]
+            "
           />
         </div>
 
-        {/* Content */}
-        <div className="flex min-h-[125px] flex-1 flex-col px-3 pb-4 pt-3">
-          <div>
-            <h3 className="line-clamp-2 text-xs font-medium leading-5 text-gray-800 sm:text-sm">
-              {product.title}
-            </h3>
-
-            {product.brand && (
-              <p className="mt-1 text-[10px] text-gray-400 sm:text-xs">
-                {product.brand}
-              </p>
-            )}
-          </div>
-
-          <div className="mt-auto pt-3">
-            {product.oldPrice && (
-              <p className="text-[10px] text-gray-400 line-through sm:text-xs">
-                {formatPrice(product.oldPrice)} تومان
-              </p>
-            )}
-
-            <p className="mt-1 text-xs font-bold text-gray-900 sm:text-sm">
-              {formatPrice(product.price)}
-
-              <span className="mr-1 text-[9px] font-normal text-gray-500">
-                تومان
-              </span>
-            </p>
-          </div>
-        </div>
+        {/* Product Title */}
+        <h3
+          className="
+            mt-4
+            mb-20
+            h-[6px]
+            text-right
+            text-sm
+            font-medium
+            leading-6
+            text-gray-900
+            md:text-base
+          "
+        >
+          {product.title}
+        </h3>
       </Link>
 
-      {/* Add to cart */}
-      <div className="absolute bottom-0 left-0 z-20">
-        <div className="relative flex size-[48px] items-end justify-start">
-          <div className="absolute inset-0 rounded-tr-[20px] bg-gray-50" />
+      {/* Price */}
+      <div className="absolute bottom-4 left-3 flex flex-col items-start">
+        {product.oldPrice && product.oldPrice > product.price && (
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-bold text-gray-900 line-through md:text-base">
+              {formatPrice(product.oldPrice)}
+            </span>
 
-          <Button
-            type="button"
-            size="icon"
-            variant={'secondary'}
-            aria-label="افزودن به سبد خرید"
-            // className="relative z-10 mb-2 mr-2 size-10 rounded-full bg-gray-900 text-white shadow-[0_4px_12px_rgba(0,0,0,0.10)] transition-all hover:bg-blue-600 active:scale-95"
-            className="absolute left-2 top-2 z-20 size-8 rounded-full border border-white/70 bg-white/70 text-gray-400 shadow-sm backdrop-blur-md hover:bg-white hover:text-emerald-500"
-          >
-            <ShoppingCart className="size-4" />
-          </Button>
+            {product.discount && (
+              <span className="rounded-lg bg-primary px-[7px] py-[2px] text-xs text-white">
+                {formatPrice(product.discount)}٪
+              </span>
+            )}
+          </div>
+        )}
+
+        <div className="flex items-center gap-1 text-sm font-bold text-gray-900 md:text-base">
+          <span>{formatPrice(product.price)}</span>
+
+          <span className="text-xs font-normal text-gray-400">تومان</span>
         </div>
       </div>
+
+      {/* Add To Cart */}
+      <button
+        type="button"
+        aria-label="افزودن به سبد خرید"
+        className="
+          absolute
+          bottom-0
+          right-0
+          z-10
+          flex
+          h-10
+          w-14
+          items-center
+          justify-center
+          rounded-[18px_0_18px_0]
+          bg-gray-900
+          text-white
+          transition-colors
+          hover:bg-gray-800
+          active:scale-[0.97]
+        "
+        onClick={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+
+          // TODO: add to cart
+          console.log('Add to cart:', {
+            product,
+          });
+        }}
+      >
+        <CartLargeDuotone className="size-7" />
+      </button>
     </article>
   );
 }

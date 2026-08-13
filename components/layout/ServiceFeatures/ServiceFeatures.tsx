@@ -1,43 +1,37 @@
-import { serviceFeatures } from './service.data';
+import { features } from '@/components/layout/ServiceFeatures/service.data';
 
-export default function ServiceFeatures() {
+export default function Features() {
   return (
-    <section className="my-8">
-      <div className="grid grid-cols-2 overflow-hidden rounded-2xl border border-gray-100 bg-white md:grid-cols-4">
-        {serviceFeatures.map((feature, index) => {
-          const Icon = feature.icon;
+    <section className="container mt-8 text-[#1B1F22] dark:text-gray-100">
+      <div className="my-10 rounded-3xl border border-gray-200 bg-[#f5f8fa] px-6 py-8 dark:border-gray-700 dark:bg-gray-800 md:px-10">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-5 md:grid-cols-4">
+          {features.map((feature) => {
+            const Icon = feature.icon;
 
-          return (
-            <div
-              key={feature.id}
-              className={`
-                flex
-                items-center
-                gap-3
-                px-4
-                py-5
-                sm:px-6
-                ${index !== 0 ? 'border-r border-gray-100' : ''}
-                max-md:[&:nth-child(3)]:border-t
-                max-md:[&:nth-child(4)]:border-t
-              `}
-            >
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-600">
-                <Icon className="size-5" />
+            return (
+              <div key={feature.title} className="flex items-center gap-3">
+                {/* Icon */}
+                <div className="flex h-[35px] w-[35px] shrink-0 items-center justify-center md:h-[50px] md:w-[50px]">
+                  <Icon
+                    className="h-7 w-7 text-[#495666] md:h-9 md:w-9"
+                    strokeWidth={1.8}
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="flex min-w-0 flex-col gap-1">
+                  <span className="line-clamp-1 text-[12px] font-bold text-[#495666] md:text-[16px]">
+                    {feature.title}
+                  </span>
+
+                  <span className="line-clamp-1 text-[10px] font-bold text-gray-500 dark:text-gray-400 md:text-[12px]">
+                    {feature.description}
+                  </span>
+                </div>
               </div>
-
-              <div>
-                <h3 className="text-xs font-bold text-gray-800 sm:text-sm">
-                  {feature.title}
-                </h3>
-
-                <p className="mt-1 text-[9px] text-gray-400 sm:text-[10px]">
-                  {feature.description}
-                </p>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </section>
   );
