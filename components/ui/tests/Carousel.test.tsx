@@ -10,7 +10,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from './Carousel';
+} from '@/components/ui/carousel';
 
 const mockEmblaApi = {
   canScrollPrev: vi.fn(() => true),
