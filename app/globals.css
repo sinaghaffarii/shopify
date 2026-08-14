@@ -136,8 +136,8 @@
 body {
   direction: rtl;
   font-family:
-    KalamehWeb,
-    Vazirmatn UI FD NL;
+    Vazirmatn UI FD NL,
+    KalamehWeb;
 }
 
 /* ==================== BANNER CAROUSEL SWIPPER DOTS STYLES ============================== */

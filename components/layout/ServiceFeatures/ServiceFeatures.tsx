@@ -2,7 +2,7 @@ import { features } from '@/components/layout/ServiceFeatures/service.data';
 
 export default function Features() {
   return (
-    <section className="container mt-8 text-[#1B1F22] dark:text-gray-100">
+    <section className="mt-8 text-[#1B1F22] dark:text-gray-100">
       <div className="my-10 rounded-3xl border border-gray-200 bg-[#f5f8fa] px-6 py-8 dark:border-gray-700 dark:bg-gray-800 md:px-10">
         <div className="grid grid-cols-2 gap-x-4 gap-y-5 md:grid-cols-4">
           {features.map((feature) => {

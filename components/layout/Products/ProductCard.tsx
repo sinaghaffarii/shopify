@@ -15,14 +15,6 @@ const formatPrice = (price: number) => {
 };
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const originalPrice = product.price;
-  const discount = product.discount ?? 0;
-
-  const discountedPrice =
-    discount > 0
-      ? Math.round(originalPrice - (originalPrice * discount) / 100)
-      : originalPrice;
-
   return (
     <article
       className="
@@ -58,7 +50,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               250px
             "
             className="
-              object-cover
+              object-content
               object-center
               mix-blend-multiply
               transition-transform
@@ -71,16 +63,15 @@ export default function ProductCard({ product }: ProductCardProps) {
         {/* Product Title */}
         <h3
           className="
-            mt-4
-            mb-20
-            h-[6px]
-            text-right
-            text-sm
-            font-medium
-            leading-6
-            text-gray-900
-            md:text-base
-          "
+    mt-4
+    mb-20
+    line-clamp-2
+    text-right
+    text-sm
+    font-light
+    leading-6
+    text-gray-900
+  "
         >
           {product.title}
         </h3>
@@ -90,7 +81,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className="absolute bottom-4 left-3 flex flex-col items-start">
         {product.oldPrice && product.oldPrice > product.price && (
           <div className="flex items-center gap-2">
-            <span className="text-sm font-bold text-gray-900 line-through md:text-base">
+            <span className="text-sm font-light text-gray-600 line-through md:text-base">
               {formatPrice(product.oldPrice)}
             </span>
 
@@ -102,7 +93,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         )}
 
-        <div className="flex items-center gap-1 text-sm font-bold text-gray-900 md:text-base">
+        <div className="flex items-center gap-1 text-sm font-medium text-gray-900 md:text-base">
           <span>{formatPrice(product.price)}</span>
 
           <span className="text-xs font-normal text-gray-400">تومان</span>
