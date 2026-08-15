@@ -6,7 +6,7 @@ interface SectionHeaderProps {
 export function ProductSectionHeader({ number, title }: SectionHeaderProps) {
   return (
     <div className="mb-3 flex items-center gap-3">
-      <span className="flex size-8 items-center justify-center rounded-xl bg-primary/10 text-sm font-bold text-primary">
+      <span className="flex size-8 items-center justify-center rounded-md bg-primary/10 text-sm font-bold text-primary">
         {number}
       </span>
 

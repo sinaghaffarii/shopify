@@ -13,7 +13,7 @@ const ProductPurchaseCard = ({ product }: Props) => {
 
   return (
     <aside className="lg:block">
-      <div className="rounded-[22px] bg-[#f7f8fa] p-4">
+      <div className="rounded-md bg-[#f7f8fa] p-4">
         <h3 className="text-sm font-bold text-gray-800">مشخصات</h3>
 
         <div className="mt-2">
@@ -68,7 +68,7 @@ const ProductPurchaseCard = ({ product }: Props) => {
             </span>
 
             {product.discount !== undefined && (
-              <span className="rounded-lg bg-primary px-2 py-1 text-xs font-medium text-white">
+              <span className="rounded-md bg-primary px-2 py-1 text-xs font-medium text-white">
                 {formatPrice(product.discount)}٪
               </span>
             )}

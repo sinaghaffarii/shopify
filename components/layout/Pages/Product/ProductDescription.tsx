@@ -1,5 +1,6 @@
 import { ProductSectionHeader } from '@/components/layout/Pages/Product/+components/ProductSectionHeader';
 import { Product } from '@/components/layout/Pages/Product/product.types';
+import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
 
 interface Props {
@@ -13,7 +14,7 @@ const ProductDescription = ({ isExpanded, onExpand, product }: Props) => {
     <section id="description" className="scroll-mt-28 pt-5">
       <ProductSectionHeader number="1" title="توضیحات" />
 
-      <div className="relative overflow-hidden rounded-[22px] border border-gray-100 bg-white p-5 shadow-[0_2px_14px_rgba(0,0,0,0.04)] md:p-7">
+      <div className="relative overflow-hidden rounded-md border border-gray-100 bg-white p-5 shadow-[0_2px_14px_rgba(0,0,0,0.04)] md:p-7">
         <div
           className={`
                     text-justify
@@ -92,28 +93,19 @@ const ProductDescription = ({ isExpanded, onExpand, product }: Props) => {
 
         {!isExpanded && (
           <div className="absolute inset-x-0 bottom-0 flex h-32 items-end justify-center bg-linear-to-t from-white via-white/95 to-transparent pb-4">
-            <button
+            <Button
               type="button"
               onClick={() => onExpand(true)}
+              variant={'secondary'}
               className="
                         flex
                         items-center
                         gap-2
-                        rounded-2xl
-                        bg-gray-900
-                        px-6
-                        py-2.5
-                        text-sm
-                        font-medium
-                        text-white
-                        shadow-lg
-                        transition-all
-                        hover:bg-primary
                       "
             >
               مشاهده بیشتر
               <ChevronDown className="size-4" />
-            </button>
+            </Button>
           </div>
         )}
       </div>

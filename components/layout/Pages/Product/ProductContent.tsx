@@ -2,7 +2,9 @@ import { InfoRow } from '@/components/layout/Pages/Product/+components/ProductIn
 import { TabButton } from '@/components/layout/Pages/Product/+components/TabButton';
 import { Product } from '@/components/layout/Pages/Product/product.types';
 import ProductDescription from '@/components/layout/Pages/Product/ProductDescription';
+import ProductReviews from '@/components/layout/Pages/Product/ProductReviews';
 import ProductSpecifications from '@/components/layout/Pages/Product/ProductSpecifications';
+import { Button } from '@/components/ui/button';
 import { formatPrice } from '@/utils/helpers';
 import {
   BarChart3,
@@ -72,7 +74,7 @@ const ProductContent = ({ product }: Props) => {
         <div className="min-w-0">
           {/* Sticky Navigation */}
           <div className="sticky top-3 z-30">
-            <div className="rounded-[20px] border border-gray-100 bg-white/90 p-2 shadow-[0_8px_30px_rgba(0,0,0,0.08)] backdrop-blur-xl">
+            <div className="rounded-md border border-gray-100 bg-white/90 p-2 shadow-[0_8px_30px_rgba(0,0,0,0.08)] backdrop-blur-xl">
               <div className="flex items-center justify-between gap-3">
                 <nav className="flex min-w-0 flex-1 gap-1 overflow-x-auto">
                   <TabButton
@@ -98,9 +100,9 @@ const ProductContent = ({ product }: Props) => {
                 </nav>
 
                 <div className="hidden items-center gap-1 sm:flex">
-                  <button
+                  <Button
                     type="button"
-                    className="flex size-8 items-center justify-center rounded-lg text-gray-400 hover:bg-gray-100"
+                    variant={'ghost'}
                     onClick={() => {
                       const sections = [
                         'description',
@@ -116,11 +118,11 @@ const ProductContent = ({ product }: Props) => {
                     }}
                   >
                     <ChevronUp className="size-4" />
-                  </button>
+                  </Button>
 
-                  <button
+                  <Button
                     type="button"
-                    className="flex size-8 items-center justify-center rounded-lg text-gray-400 hover:bg-gray-100"
+                    variant={'ghost'}
                     onClick={() => {
                       const sections = [
                         'description',
@@ -136,7 +138,7 @@ const ProductContent = ({ product }: Props) => {
                     }}
                   >
                     <ChevronDown className="size-4" />
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -161,6 +163,7 @@ const ProductContent = ({ product }: Props) => {
           {/* ============================================================ */}
           {/* Reviews                                                        */}
           {/* ============================================================ */}
+          <ProductReviews product={product} />
         </div>
 
         {/* ================================================================= */}
@@ -168,8 +171,8 @@ const ProductContent = ({ product }: Props) => {
         {/* ================================================================= */}
 
         <aside className="hidden lg:block">
-          <div className="sticky top-4 rounded-[23px] bg-white p-5 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
-            <div className="rounded-[20px] bg-[#f7f8fa] p-4">
+          <div className="sticky top-4 rounded-md bg-white p-5 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+            <div className="rounded-md bg-[#f7f8fa] p-4">
               <h3 className="text-sm font-bold text-gray-800">مشخصات</h3>
 
               <InfoRow
@@ -229,16 +232,17 @@ const ProductContent = ({ product }: Props) => {
               </div>
             </div>
 
-            <button
+            <Button
               type="button"
-              className="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-gray-900 py-3.5 text-sm font-bold text-white transition-colors hover:bg-primary"
+              size={'lg'}
+              className="mt-5 w-full gap-2"
               onClick={() => {
                 console.log('Add to cart:', product);
               }}
             >
               <ShoppingBag className="size-5" />
               افزودن به سبد خرید
-            </button>
+            </Button>
           </div>
         </aside>
       </div>

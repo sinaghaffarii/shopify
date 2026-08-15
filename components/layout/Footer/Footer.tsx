@@ -169,7 +169,7 @@ function TrustBadge({ mobile = false }: { mobile?: boolean }) {
             items-center
             justify-center
             overflow-hidden
-            rounded-[20px]
+            rounded-md
             border
             border-gray-700
             shadow-none

@@ -1,4 +1,5 @@
 import { Product } from '@/components/layout/Pages/Product/product.types';
+import { Button } from '@/components/ui/button';
 import { formatPrice } from '@/utils/helpers';
 import { AlertCircle, Heart, Plus, Star } from 'lucide-react';
 import { useState } from 'react';
@@ -12,10 +13,32 @@ const ProductInfo = ({ product }: Props) => {
 
   return (
     <div className="flex min-w-0 flex-col">
-      {/* Title */}
-      <h1 className="pt-2 text-xl font-bold leading-8 text-gray-900">
-        {product.title}
-      </h1>
+      {/* Desktop Actions */}
+      <div className="gap-3 flex items-center justify-start">
+        <Button
+          type="button"
+          aria-label="افزودن به علاقه‌مندی‌ها"
+          onClick={() => setIsFavorite((value) => !value)}
+          size={'icon-lg'}
+          variant={'secondary'}
+          className={`
+                    flex
+                    shrink-0
+                    items-center
+                    justify-center
+                    transition-colors
+                  `}
+        >
+          <Heart
+            className={`size-5 ${isFavorite && 'text-red-500'}`}
+            fill={isFavorite ? 'currentColor' : 'none'}
+          />
+        </Button>
+        {/* Title */}
+        <h1 className="pt-2 text-xl font-bold leading-8 text-gray-900">
+          {product.title}
+        </h1>
+      </div>
 
       {product.englishTitle && (
         <div className="mt-2 flex items-center gap-3">
@@ -76,68 +99,11 @@ const ProductInfo = ({ product }: Props) => {
 
       {/* Notice */}
       {product.notice && (
-        <div className="mt-6 flex items-start gap-3 rounded-2xl border border-gray-100 px-4 py-3 text-xs leading-6 text-gray-500">
+        <div className="mt-6 flex items-start gap-3 rounded-md border border-gray-100 px-4 py-3 text-xs leading-6 text-gray-500">
           <AlertCircle className="mt-1 size-4 shrink-0 text-primary" />
-
           <p>{product.notice}</p>
         </div>
       )}
-
-      {/* Desktop Actions */}
-      <div className="mt-auto hidden gap-3 pt-8 md:flex">
-        <button
-          type="button"
-          className="
-                    flex
-                    flex-1
-                    items-center
-                    justify-center
-                    gap-2
-                    rounded-2xl
-                    bg-gray-900
-                    px-5
-                    py-3.5
-                    text-sm
-                    font-bold
-                    text-white
-                    transition-all
-                    hover:bg-primary
-                    active:scale-[0.98]
-                  "
-          onClick={() => {
-            console.log('Add to cart:', product);
-          }}
-        >
-          <Plus className="size-5" />
-
-          <span>افزودن به سبد خرید</span>
-        </button>
-
-        <button
-          type="button"
-          aria-label="افزودن به علاقه‌مندی‌ها"
-          onClick={() => setIsFavorite((value) => !value)}
-          className={`
-                    flex
-                    size-12
-                    shrink-0
-                    items-center
-                    justify-center
-                    rounded-2xl
-                    transition-colors
-                    ${
-                      isFavorite
-                        ? 'bg-primary text-white'
-                        : 'bg-gray-100 text-gray-600 hover:bg-primary hover:text-white'
-                    }
-                  `}
-        >
-          <Heart
-            className="size-5"
-            fill={isFavorite ? 'currentColor' : 'none'}
-          />
-        </button>
-      </div>
     </div>
   );
 };

@@ -10,7 +10,7 @@ const ProductSpecifications = ({ product }: Props) => {
     <section id="specifications" className="scroll-mt-28 pt-5">
       <ProductSectionHeader number="2" title="مشخصات" />
 
-      <div className="overflow-hidden rounded-[22px] border border-gray-100 bg-white shadow-[0_2px_14px_rgba(0,0,0,0.04)]">
+      <div className="overflow-hidden rounded-md border border-gray-100 bg-white shadow-[0_2px_14px_rgba(0,0,0,0.04)]">
         <div className="overflow-x-auto">
           <table className="w-full min-w-[500px]">
             <thead>

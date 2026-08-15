@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="fa" dir="rtl" className="antialiased" suppressHydrationWarning>
-      <body className="min-h-screen bg-[#efeeeea1]" suppressHydrationWarning>
+      <body className="min-h-screen bg-[#f7f8fa]" suppressHydrationWarning>
         <Navigation />
 
         {children}

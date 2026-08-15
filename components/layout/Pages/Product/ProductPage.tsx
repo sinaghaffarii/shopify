@@ -10,6 +10,7 @@ import ProductContent from '@/components/layout/Pages/Product/ProductContent';
 import { Product } from '@/components/layout/Pages/Product/product.types';
 import { formatPrice } from '@/utils/helpers';
 import RelatedProducts from '@/components/layout/Pages/Product/RelatedProducts';
+import { Button } from '@/components/ui/button';
 
 const product: Product = {
   id: 1,
@@ -26,17 +27,17 @@ const product: Product = {
   images: [
     {
       id: 1,
-      src: '/images/products/product-1.webp',
+      src: '/images/products/shirt-1.jpg',
       alt: 'پیراهن آستین بلند مردانه',
     },
     {
       id: 2,
-      src: '/images/products/product-2.webp',
+      src: '/images/products/shirt-2.jpg',
       alt: 'پیراهن مردانه نمای دوم',
     },
     {
       id: 3,
-      src: '/images/products/product-3.webp',
+      src: '/images/products/shirt-3.jpg',
       alt: 'پیراهن مردانه نمای سوم',
     },
   ],
@@ -143,51 +144,14 @@ const product: Product = {
   },
 };
 
-/* -------------------------------------------------------------------------- */
-/* Related Products                                                           */
-/* -------------------------------------------------------------------------- */
-
-const relatedProductsList = [
-  {
-    id: 1,
-    title: 'پیراهن مردانه آستین کوتاه',
-    image: '/images/products/related-1.webp',
-    price: 1100000,
-  },
-  {
-    id: 2,
-    title: 'شلوارک مردانه مدل کلاسیک',
-    image: '/images/products/related-2.webp',
-    price: 1500000,
-  },
-  {
-    id: 3,
-    title: 'تیشرت مردانه نخی',
-    image: '/images/products/related-3.webp',
-    price: 850000,
-  },
-  {
-    id: 4,
-    title: 'شلوار مردانه کتان',
-    image: '/images/products/related-4.webp',
-    price: 1900000,
-  },
-  {
-    id: 5,
-    title: 'سویشرت مردانه',
-    image: '/images/products/related-5.webp',
-    price: 1700000,
-  },
-];
-
 export default function ProductPage() {
   return (
-    <main dir="rtl" className="min-h-screen bg-[#f7f8fa] text-gray-900">
+    <main dir="rtl" className="min-h-screen text-gray-900 space-y-8">
       {/* ================================================================== */}
       {/* Breadcrumb                                                         */}
       {/* ================================================================== */}
 
-      <div className="mx-auto w-[95%] max-w-325">
+      <div className="mx-auto w-[95%] max-w-325 mb-1">
         <nav className="flex items-center gap-2 overflow-hidden py-4 text-sm">
           <Link
             href="/"
@@ -216,7 +180,7 @@ export default function ProductPage() {
       {/* ================================================================== */}
 
       <section className="mx-auto w-[95%] max-w-325">
-        <div className="rounded-[22px] bg-white p-4 shadow-[0_3px_14px_rgba(0,0,0,0.05)] md:p-6">
+        <div className="rounded-md bg-white p-4 shadow-[0_3px_14px_rgba(0,0,0,0.05)] md:p-6">
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px] xl:grid-cols-[420px_minmax(0,1fr)_300px]">
             {/* ============================================================ */}
             {/* Gallery                                                       */}
@@ -249,7 +213,7 @@ export default function ProductPage() {
       {/* Related Products                                                   */}
       {/* ================================================================== */}
 
-      <RelatedProducts relatedProducts={relatedProductsList} />
+      <RelatedProducts />
 
       {/* ================================================================== */}
       {/* Mobile Buy Bar                                                     */}
@@ -269,7 +233,7 @@ export default function ProductPage() {
             </div>
           </div>
 
-          <button
+          <Button
             type="button"
             className="flex flex-1 items-center justify-center gap-2 rounded-2xl bg-gray-900 py-3.5 text-sm font-bold text-white"
             onClick={() => {
@@ -278,7 +242,7 @@ export default function ProductPage() {
           >
             <ShoppingBag className="size-5" />
             افزودن به سبد
-          </button>
+          </Button>
         </div>
       </div>
     </main>
