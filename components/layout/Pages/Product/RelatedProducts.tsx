@@ -9,7 +9,7 @@ import Autoplay from 'embla-carousel-autoplay';
 
 const RelatedProducts = () => {
   return (
-    <section className="mx-auto mt-12 max-w-[1500px] pb-12">
+    <section className="mx-auto mt-10 w-full max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
       <div className="mb-5 flex items-center gap-3">
         <h2 className="shrink-0 text-lg font-bold text-gray-900">
           محصولات مرتبط
@@ -36,10 +36,7 @@ const RelatedProducts = () => {
           {products.map((product) => (
             <CarouselItem
               key={product.id}
-              className="
-              pl-2
-            basis-1/2
-            "
+              className="basis-[48%] ps-2 sm:basis-1/3 lg:basis-1/4 xl:basis-1/5"
             >
               <ProductCard product={product} />
             </CarouselItem>

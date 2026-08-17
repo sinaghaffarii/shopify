@@ -146,12 +146,12 @@ const product: Product = {
 
 export default function ProductPage() {
   return (
-    <main dir="rtl" className="min-h-screen text-gray-900 space-y-8">
+    <main dir="rtl" className="min-h-screen pb-24 text-gray-900">
       {/* ================================================================== */}
       {/* Breadcrumb                                                         */}
       {/* ================================================================== */}
 
-      <div className="mx-auto w-[95%] max-w-325 mb-1">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center gap-2 overflow-hidden py-4 text-sm">
           <Link
             href="/"
@@ -179,7 +179,7 @@ export default function ProductPage() {
       {/* Product Hero                                                       */}
       {/* ================================================================== */}
 
-      <section className="mx-auto w-[95%] max-w-325">
+      <section className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-md bg-white p-4 shadow-[0_3px_14px_rgba(0,0,0,0.05)] md:p-6">
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px] xl:grid-cols-[420px_minmax(0,1fr)_300px]">
             {/* ============================================================ */}
@@ -235,7 +235,7 @@ export default function ProductPage() {
 
           <Button
             type="button"
-            className="flex flex-1 items-center justify-center gap-2 rounded-2xl bg-gray-900 py-3.5 text-sm font-bold text-white"
+            className="flex flex-1 items-center justify-center gap-2 rounded-md bg-gray-900 py-3.5 text-sm font-bold text-white"
             onClick={() => {
               console.log('Add to cart:', product);
             }}

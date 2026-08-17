@@ -1,13 +1,11 @@
 import Footer from '@/components/layout/Footer/Footer';
 import Navigation from '@/components/layout/Header/Navigation';
 
-export default function ShopLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function ShopLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <>
       <Navigation />
-      <main>{children}</main>
+      {children}
       <Footer />
     </>
   );

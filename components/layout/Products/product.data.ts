@@ -3,6 +3,7 @@ import type { Product } from './product.types';
 export const products: Product[] = [
   {
     id: 1,
+    category: 'لوازم دیجیتال',
     title: 'هدفون بی سیم مدل WH-1000XM5',
     brand: 'Sony',
     image: '/images/products/shirt.webp',
@@ -14,6 +15,7 @@ export const products: Product[] = [
   },
   {
     id: 2,
+    category: 'زیبایی و سلامت',
     title: 'عطر زنانه مدل Coco',
     brand: 'Chanel',
     image: '/images/products/shirt.webp',
@@ -25,6 +27,7 @@ export const products: Product[] = [
   },
   {
     id: 3,
+    category: 'کفش',
     title: 'کفش ورزشی مردانه',
     brand: 'Nike',
     image: '/images/products/shirt.webp',
@@ -47,6 +50,7 @@ export const products: Product[] = [
   },
   {
     id: 4,
+    category: 'اکسسوری',
     title: 'عینک آفتابی Ray-Ban',
     brand: 'Ray-Ban',
     image: '/images/products/shirt.webp',
@@ -58,6 +62,7 @@ export const products: Product[] = [
   },
   {
     id: 5,
+    category: 'اکسسوری',
     title: 'کوله پشتی لپ تاپ',
     brand: 'Koton',
     image: '/images/products/shirt.webp',
@@ -69,6 +74,7 @@ export const products: Product[] = [
   },
   {
     id: 6,
+    category: 'اکسسوری',
     title: 'ساعت مچی مردانه',
     brand: 'Casio',
     image: '/images/products/shirt.webp',
