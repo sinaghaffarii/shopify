@@ -173,3 +173,7 @@ body {
   background: #ffffff;
   opacity: 1;
 }
+
+.z-head {
+  z-index: 9999;
+}

@@ -1,5 +1,6 @@
 'use client';
 
+import { ChevronRight, UserCircle } from 'lucide-react';
 import { useState } from 'react';
 
 type LoginMethod = 'phone' | 'password';
@@ -16,14 +17,16 @@ export default function LoginForm() {
         type="button"
         className="absolute right-5 top-5 flex h-9 items-center gap-1.5 rounded-full border border-gray-200 bg-gray-50 px-3 text-xs font-medium text-gray-500 transition hover:border-primary/40 hover:bg-primary/5 hover:text-primary active:scale-95"
       >
-        <span>←</span>
+        <ChevronRight className="size-4" />
         بازگشت
       </button>
 
       <div className="relative z-10">
         <div className="flex flex-col items-center">
           <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
-            <span className="text-2xl text-primary">◯</span>
+            <span className="text-2xl text-primary">
+              <UserCircle />
+            </span>
           </div>
 
           <h1 className="text-2xl font-bold tracking-tight text-gray-800">

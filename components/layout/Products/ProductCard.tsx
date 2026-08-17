@@ -50,7 +50,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               250px
             "
             className="
-              object-content
+              object-contain
               object-center
               mix-blend-multiply
               transition-transform
