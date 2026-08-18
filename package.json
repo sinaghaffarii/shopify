@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "prepare": "husky",
-    "test:all": "pnpm --dir shop test:run"
+    "test:all": "pnpm --dir front-end test:run"
   },
   "devDependencies": {
     "husky": "^9.1.7",
