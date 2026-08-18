@@ -8,6 +8,7 @@ import routes from '@/routes/index.js';
 import { notFoundMiddleware } from '@/middlewares/not-found.middleware.js';
 import { errorMiddleware } from '@/middlewares/error.middleware.js';
 import { swaggerSpec } from '@/config/swagger.js';
+import cookieParser from 'cookie-parser';
 
 const app: Express = express();
 
@@ -31,6 +32,7 @@ if (process.env.NODE_ENV !== 'test') {
 // Body Parsing
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: false, limit: '1mb' }));
+app.use(cookieParser());
 
 // Rate Limit
 app.use('/api', apiRateLimiter);

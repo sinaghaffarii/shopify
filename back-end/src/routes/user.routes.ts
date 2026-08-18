@@ -8,8 +8,12 @@ import {
   deleteUserSchema,
   listUsersSchema,
 } from '@/validations/user.validation.js';
+import { authenticate, authorize } from '@/middlewares/auth.middleware.js';
+import { UserRole } from '@/enums/user.enum.js';
 
 const router: RouterType = Router();
+
+router.use(authenticate, authorize(UserRole.ADMIN, UserRole.SUPER_ADMIN));
 
 /**
  * @openapi

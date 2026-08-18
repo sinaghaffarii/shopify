@@ -5,8 +5,10 @@ import type { SafeUser } from '@/types/user.types.js';
 const SAFE_USER_SELECT = {
   id: true,
   email: true,
+  phone: true,
   name: true,
   role: true,
+  isProtected: true,
   createdAt: true,
   updatedAt: true,
 } satisfies Prisma.UserSelect;
@@ -27,9 +29,11 @@ export const userRepository = {
   },
 
   async findByEmail(email: string): Promise<User | null> {
-    return prisma.user.findUnique({
-      where: { email },
-    });
+    return prisma.user.findUnique({ where: { email } });
+  },
+
+  async findByPhone(phone: string): Promise<User | null> {
+    return prisma.user.findUnique({ where: { phone } });
   },
 
   async findMany(params: { skip: number; take: number; search?: string }): Promise<SafeUser[]> {
@@ -38,6 +42,7 @@ export const userRepository = {
           OR: [
             { name: { contains: params.search, mode: 'insensitive' } },
             { email: { contains: params.search, mode: 'insensitive' } },
+            { phone: { contains: params.search, mode: 'insensitive' } },
           ],
         }
       : {};
@@ -57,6 +62,7 @@ export const userRepository = {
           OR: [
             { name: { contains: search, mode: 'insensitive' } },
             { email: { contains: search, mode: 'insensitive' } },
+            { phone: { contains: search, mode: 'insensitive' } },
           ],
         }
       : {};
@@ -74,5 +80,9 @@ export const userRepository = {
 
   async delete(id: string): Promise<void> {
     await prisma.user.delete({ where: { id } });
+  },
+
+  async countByRole(role: User['role']): Promise<number> {
+    return prisma.user.count({ where: { role } });
   },
 };

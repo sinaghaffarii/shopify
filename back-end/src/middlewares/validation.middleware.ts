@@ -9,12 +9,14 @@ export function validate<T extends ZodType>(schema: T) {
         body: req.body,
         query: req.query,
         params: req.params,
+        cookies: req.cookies,
       });
 
       req.validated = parsed as {
         body?: unknown;
         query?: unknown;
         params?: unknown;
+        cookies?: unknown;
       };
 
       next();

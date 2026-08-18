@@ -1,17 +1,19 @@
-import type { CreateUserBody, UpdateUserBody, ListUsersQuery } from '@/validations/user.validation.js';
+import type { UserRole } from '@/enums/user.enum.js';
 
 interface ValidatedRequestData {
   body?: unknown;
   query?: unknown;
   params?: unknown;
+  cookies?: unknown;
 }
 
 declare global {
   namespace Express {
     interface Request {
       validated?: ValidatedRequestData;
+      user?: { id: string; role: UserRole };
     }
   }
 }
 
-export type { CreateUserBody, UpdateUserBody, ListUsersQuery };
+export {};

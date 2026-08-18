@@ -8,18 +8,53 @@ datasource db {
 }
 
 enum UserRole {
-  ADMIN
   USER
+  ADMIN
+  SUPER_ADMIN
 }
 
 model User {
   id        String   @id @default(uuid())
-  email     String   @unique
-  password  String
+  email     String?  @unique
+  password  String?
+  phone     String?  @unique
   name      String
   role      UserRole @default(USER)
+  isProtected Boolean @default(false) @map("is_protected")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
+  otpCodes      OtpCode[]
+  refreshTokens RefreshToken[]
+
   @@map("users")
+}
+
+model OtpCode {
+  id        String   @id @default(uuid())
+  phone     String
+  code      String
+  expiresAt DateTime @map("expires_at")
+  consumedAt DateTime? @map("consumed_at")
+  attempts  Int      @default(0)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([phone])
+  @@map("otp_codes")
+}
+
+model RefreshToken {
+  id        String    @id @default(uuid())
+  token     String    @unique
+  userId    String    @map("user_id")
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime  @map("expires_at")
+  revokedAt DateTime? @map("revoked_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  @@index([userId])
+  @@map("refresh_tokens")
 }
