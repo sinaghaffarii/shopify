@@ -1,12 +1,8 @@
-import { Router } from 'express';
+import { Router, type Router as RouterType } from 'express';
+import userRoutes from '@/routes/user.routes.js';
 
-const router: Router = Router();
+const router: RouterType = Router();
 
-router.get('/health', (_req, res) => {
-  res.status(200).json({
-    success: true,
-    message: 'API is healthy',
-  });
-});
+router.use('/users', userRoutes);
 
 export default router;

@@ -11,7 +11,8 @@
     "prepare": "husky",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "test:run": "vitest run"
+    "test:run": "vitest run",
+    "tree-folders": "find src app public -type f | sort"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.23",
